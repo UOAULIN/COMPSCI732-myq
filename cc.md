@@ -27,3 +27,13 @@ return element pair{
     	attribute name{$artist1/@name}  
     }
 }
+
+
+--------------------------------------------------------------------------------
+for $rating in distinct-values(//artists/artist/rating)
+return element rating{
+	attribute value {$rating},
+    element average_age{avg(//artists/artist[rating = $rating]/age)}
+}
+
+ 
