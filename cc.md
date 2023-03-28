@@ -11,3 +11,19 @@ return
         attribute name {$artist/@name}
       }
   }
+
+
+
+
+let $a := //artists/artist[pieces > 1000]
+for $artist in $a
+	for $artist1 in $artist/following-sibling::*[pieces > 1000]
+
+return element pair{
+	element artist{
+    	attribute name{$artist/@name}  
+    },
+    element artist1{
+    	attribute name{$artist1/@name}  
+    }
+}
