@@ -1,0 +1,32 @@
+<artists>
+    <artist name="Vinnie Van Voov">
+        <period>Impress ion</period>
+            <pieces>2000</pieces>
+        <rating >10</rating>
+        <age>37</age>
+    </artist>
+  	<artist name="Vinnie Van">
+        <period>Impress ion</period>
+            <pieces>2000</pieces>
+        <rating >11</rating>
+        <age>37</age>
+    </artist>
+    <artist name="Henri Heroic">
+        <period>Expression</period>
+        <pieces>900</pieces>
+        <rating >9</rating>
+        <age>85</age>
+    </artist>
+    <artist name="Picante Public">
+        <period>Expression</period>
+        <pieces>50000</pieces>
+        <rating>10</rating>
+        <age>92</age>
+    </artist>
+  	<artist name="Picante Public1">
+        <period>Express</period>
+        <pieces>50000</pieces>
+        <rating>10</rating>
+        <age>92</age>
+    </artist>
+</artists>
