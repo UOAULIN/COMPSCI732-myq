@@ -14,7 +14,7 @@ return
 
 
 
-
+--------------------------------------------------------------------------------
 let $a := //artists/artist[pieces > 1000]
 for $artist in $a
 	for $artist1 in $artist/following-sibling::*[pieces > 1000]
