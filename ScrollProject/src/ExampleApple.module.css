@@ -1,0 +1,50 @@
+.background{
+    border-radius: 10px;
+    background: black;
+    padding: 20px;
+    margin: 5px;
+    padding-bottom: 30px;
+}
+.flex{
+    display: flex;
+}
+.item1{
+    flex:1;
+}
+.header{
+    padding-top: 31px;
+}
+.h1{
+    padding-top: 31px;
+    /* color: #b344ff; */
+    background: linear-gradient(180deg, #ffb6ff, #b344ff);
+    
+}
+.image {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px; 
+}
+.gradientText {
+    background-image: linear-gradient(180deg, #ffb6ff, #b344ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+    padding: 0%;
+}
+
+.container{
+    max-width: 100%;
+    padding:0;
+    margin: 0;
+}
+
+.gradientText1 {
+    color: white;
+    margin: 0;
+    padding: 0%;
+    text-align: left;
+    font-size: 12px;
+}
