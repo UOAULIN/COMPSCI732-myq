@@ -1,0 +1,118 @@
+﻿using System.Net;
+using System.Net.Sockets;
+using System.Text;
+
+namespace WinFormsApp1
+{
+    public partial class Form1 : Form
+    {
+        private TcpClient client;
+        private IPAddress ipAddr;
+        private int port;
+        public Form1()
+        {
+
+            InitializeComponent();
+            labelShowStatus.Text = "Wait Connecting....";
+            IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
+
+            ipAddr = ipHost.AddressList[0];
+
+            port = 8081;
+
+            try
+            {
+                client = new TcpClient(ipAddr.ToString(), port);
+                labelShowStatus.Text = "Connect to Cache";
+            }catch(Exception ex)
+            {
+                labelShowStatus.Text = "EOF " + ex.Message;
+            }
+
+        }
+
+        // buttonShow: Show all file in the Server
+        private void buttonShow_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                byte command = 0;
+                using(NetworkStream stream = client.GetStream())
+                {
+                    stream.WriteByte(command);
+                    stream.Flush();
+                    StreamReader reader = new StreamReader(stream, Encoding.UTF8);
+                    string response = reader.ReadToEnd();
+                    string[] response_list = response.Split(",");
+                    listBoxShowList.Items.AddRange(response_list);
+                }
+            }catch(Exception ex)
+            {
+
+            }
+        }
+
+        private void buttonDownload1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                byte command = 1;
+
+                // 获取在listBox中选中的文件名
+                string selectedItem = listBoxShowList.SelectedItem as string ?? string.Empty;
+
+                
+
+                // 将选择的文件名转换成字节数组
+                byte[] fileNameBytes = Encoding.UTF8.GetBytes(selectedItem);
+
+                // 将文件名的字节数组长度作为Int32（4个字节）传递给Cache
+                byte[] fileNameLengthBytes = BitConverter.GetBytes(fileNameBytes.Length);
+
+                // 前面两位是用来存储操作码的，后面的9位最高支持在511位的windows文件夹，但是实际上最高就支持到260位
+                byte[] data = new byte[5 + fileNameBytes.Length];
+
+                data[0] = command;
+
+                // 将fileNameLengthBytes中的文件复制到data中 源索引0 目标索引1，后面要的是长度
+                Array.Copy(fileNameLengthBytes, 0, data, 1, fileNameLengthBytes.Length);
+
+                Array.Copy(fileNameBytes, 0, data, 5, fileNameBytes.Length);
+
+                labelDownloadFIleName.Text = selectedItem;
+
+                TcpClient client1 = new TcpClient(ipAddr.ToString(), port);
+                using (NetworkStream stream = client1.GetStream())
+                {
+                    stream.Write(data, 0, data.Length);
+                    stream.Flush();
+                    labelDownloadFIleName.Text = selectedItem;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void buttonDownload2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                byte command = 11;
+                using (NetworkStream stream = client.GetStream())
+                {
+                    stream.WriteByte(command);
+                    stream.Flush();
+
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+    }
+}
