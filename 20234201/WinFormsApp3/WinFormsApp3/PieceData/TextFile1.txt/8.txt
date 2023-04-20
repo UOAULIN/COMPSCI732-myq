@@ -1,0 +1,27 @@
+protest against DMCA takedown of youtube-dl. According to GitHub, the source code came from GitHub accidentally sharing the code with Enterprise customers themselves, not from an attack on GitHub servers.[79][80]
+
+GitHub Pages
+Since 2008, GitHub has offered GitHub Pages, a static web hosting service for blogs, project documentation,[81][82] and books.[83]
+
+All GitHub Pages content is stored in a Git repository, either as files served to visitors verbatim or in Markdown format. GitHub is integrated with Jekyll static website and blog generator and GitHub continuous integration pipelines. Each time the content source is updated, Jekyll regenerates the website and automatically serves it via GitHub Pages infrastructure.[84]
+
+As with the rest of GitHub, it includes both free and paid tiers of service. Websites generated through this service are hosted either as subdomains of the github.io domain, or can be connected to custom domains bought through a third-party domain name registrar.[85] GitHub Pages supports HTTPS encryption.[86][87]
+
+Gist
+GitHub also operates a pastebin-style site called Gist,[14] which is for code snippets, as opposed to GitHub proper, which is for larger projects.[citation needed] Tom Preston-Werner débuted the feature at a Ruby conference in 2008.[88]
+
+Gist builds on the traditional simple concept of a pastebin by adding version control for code snippets, easy forking, and TLS encryption for private pastes. Because each "gist" is its own Git repository, multiple code snippets can be contained in a single page and they can be pushed and pulled using Git.[89]
+
+Unregistered users were able to upload Gists until March 19, 2018, when uploading gists was restricted to logged-in users, reportedly to mitigate spamming on the page of recent gists.[90]
+
+Gists' URLs use hexadecimal IDs, and edits to gists are recorded in a revision history, which can show the text difference of thirty revisions per page with an option between a "split" and "unified" view. Like repositories, Gists can be forked, "starred", i.e. publicly bookmarked, and commented on. The count of revisions, stars, and forks is indicated on the gist page.[91]
+
+Education program
+GitHub launched a new program called the GitHub Student Developer Pack to give students over the age of 13 free access to popular development tools and services. GitHub partnered with Bitnami, Crowdflower, DigitalOcean, DNSimple, HackHands, Namecheap, Orchestrate, Screenhero, SendGrid, Stripe, Travis CI, and Unreal Engine to launch the program.[92]
+
+In 2016, GitHub announced the launch of the GitHub Campus Experts program[93] to train and encourage students to grow technology communities at their universities. The Campus Experts program is open to university students 18 years and older across the world.[94] GitHub Campus Experts are one of the primary ways that GitHub funds student-oriented events and communities, Campus Experts are given access to training, funding, and additional resources to run events and grow their communities. To become a Campus Expert applicants must complete an online training course consisting of multiple modules designed to grow community leadership skills.
+
+GitHub Marketplace service
+GitHub also provides some software as a service ("SaaS") integrations for adding extra features to projects. Those services include:
+
+Waffle.io: Project manageme
