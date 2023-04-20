@@ -1,0 +1,87 @@
+﻿user request: file test1.bmp at 2023-04-19 20:04:00.548 
+Response: cached file test1.bmp
+
+user request: file test2.bmp at 2023-04-19 20:04:02.122 
+Response: cached file test2.bmp
+
+user request: file example.txt at 2023-04-19 20:04:04.960 
+Response: file example.txt downloaded from the server
+
+user request: file test1.bmp at 2023-04-19 20:04:06.101 
+Response: file test1.bmp downloaded from the server
+
+user request: file test2.bmp at 2023-04-19 20:04:07.153 
+Response: file test2.bmp downloaded from the server
+
+user request: file example.txt at 2023-04-19 20:19:55.742 
+Response: cached file example.txt
+
+user request: file test1.bmp at 2023-04-19 20:19:57.415 
+Response: cached file test1.bmp
+
+user request: file test2.bmp at 2023-04-19 20:20:03.353 
+Response: cached file test2.bmp
+
+user request: file example.txt at 2023-04-19 20:21:18.771 
+Response: cached file example.txt
+
+user request: file test1.bmp at 2023-04-19 20:21:20.074 
+Response: cached file test1.bmp
+
+user request: file test2.bmp at 2023-04-19 20:21:21.479 
+Response: cached file test2.bmp
+
+user request: file example.txt at 2023-04-19 20:23:52.934 
+Response: cached file example.txt
+
+user request: file test1.bmp at 2023-04-19 20:23:54.107 
+Response: cached file test1.bmp
+
+user request: file test2.bmp at 2023-04-19 20:23:55.371 
+Response: cached file test2.bmp
+
+user request: file example.txt at 2023-04-19 20:23:56.522 
+Response: cached file example.txt
+
+user request: file test2.bmp at 2023-04-19 20:23:57.631 
+Response: cached file test2.bmp
+
+user request: file test1.bmp at 2023-04-19 20:30:05.423 
+Response: cached file test1.bmp
+
+user request: file example.txt at 2023-04-19 20:33:11.049 
+Response: cached file example.txt
+
+user request: file test1.bmp at 2023-04-19 20:33:13.539 
+Response: cached file test1.bmp
+
+user request: file example.txt at 2023-04-19 20:45:14.267 
+Response: cached file example.txt
+user request: file example.txt at 2023-04-19 20:45:14.991 
+Response: cached file example.txt
+user request: file example.txt at 2023-04-19 20:45:15.749 
+Response: cached file example.txt
+user request: file example.txt at 2023-04-19 20:45:15.942 
+Response: cached file example.txt
+user request: file example.txt at 2023-04-19 20:45:16.136 
+Response: cached file example.txt
+user request: file example.txt at 2023-04-19 20:46:41.033 
+Response: cached file example.txt
+user request: file test1.bmp at 2023-04-19 20:46:42.955 
+Response: cached file test1.bmp
+user request: file test2.bmp at 2023-04-19 20:46:45.105 
+Response: cached file test2.bmp
+user request: file example.txt at 2023-04-19 20:48:38.675 
+Response: cached file example.txt
+user request: file test1.bmp at 2023-04-19 20:48:40.695 
+Response: cached file test1.bmp
+user request: file test2.bmp at 2023-04-19 20:48:42.276 
+Response: cached file test2.bmp
+user request: file example.txt at 2023-04-20 10:47:30.927 
+Response: cached file example.txt
+user request: file test1.bmp at 2023-04-20 10:47:34.700 
+Response: cached file test1.bmp
+user request: file example.txt at 2023-04-20 13:53:03.830 
+Response: cached file example.txt
+user request: file test1.bmp at 2023-04-20 13:53:09.563 
+Response: cached file test1.bmp
