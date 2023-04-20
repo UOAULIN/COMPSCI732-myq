@@ -1,0 +1,85 @@
+using System;
+using System.IO;
+using System.Text;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string pathAllData = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "../../../Data/TextFile1.txt"));
+        byte[] bytes = File.ReadAllBytes(pathAllData); // 读取文件内容
+        string hexString = BitConverter.ToString(bytes).Replace("-", ""); // 转换为十六进制字符串
+        Console.WriteLine(hexString); // 输出结果
+        string fileContent = Encoding.UTF8.GetString(StringToByteArray(hexString));
+
+        Console.WriteLine(fileContent);
+        List<string> list = new List<string>();
+        //list.Add(fileContent);
+
+        if (fileContent.Length > 6)
+        {
+            int lastSplit = 0;
+            for (int i = 0; i <= fileContent.Length - 6; i++)
+            {
+                string strWindow = fileContent.Substring(i, 6);
+                int Rob = RobinHash(strWindow);
+                if (Rob == 0)
+                {
+                    string chunk = fileContent.Substring(lastSplit, i - lastSplit);
+                    list.Add(chunk);
+                    lastSplit = i;
+                    Console.WriteLine("-----------------------------------");
+                }
+            }
+            // 添加最后一个切片
+            string lastChunk = fileContent.Substring(lastSplit);
+            list.Add(lastChunk);
+        }
+        else
+        {
+            list.Add(fileContent);
+        }
+        foreach (string item in list)
+        {
+            Console.WriteLine(item);
+            Console.WriteLine("-----------------------------------");
+
+        }
+    }
+    // 转换成byte[]
+    static byte[] StringToByteArray(string hexString)
+    {
+        int numBytes = hexString.Length / 2;
+        byte[] bytes = new byte[numBytes];
+        for (int i = 0; i < numBytes; i++)
+        {
+            bytes[i] = Convert.ToByte(hexString.Substring(i * 2, 2), 16);
+        }
+        if (bytes.Length >= 3 && bytes[0] == 0xEF && bytes[1] == 0xBB && bytes[2] == 0xBF)
+        {
+            return bytes[3..];
+        }
+        else
+        {
+            return bytes;
+        }
+    }
+    static int RobinHash(string key)
+    {
+        int a = 19;
+        int b = 26; 
+        int p = 7919; 
+        int m = 2048; 
+
+        int hash = 0;
+        foreach (char c in key)
+        {
+            string cc = c.ToString();
+            hash = (hash * a + (int)c + b) % p;
+        }
+        return hash % m;
+    }
+    
+}
