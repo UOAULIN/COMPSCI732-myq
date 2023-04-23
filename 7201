@@ -1,0 +1,96 @@
+import sys
+
+
+class Graph:
+    vector_num = 0
+
+    def __init__(self, t, level):
+
+        self.vectorId = t
+        self.level = level
+        self.adj_list = {}
+        self.allVertex = [Graph.vector_num + i for i in range(t)]
+        self.adj_list = {cc: [] for cc in self.allVertex}
+        Graph.vector_num += t
+
+    def get_level(self):
+        return self.level
+
+    def print_degrees(self, first):
+        if not first:
+            print()
+        degrees = sorted([len(lst) for lst in self.adj_list.values()], reverse=True)
+        print(' '.join(map(str, degrees)), end='')
+
+    def insert_edge(self, start_v, end_v):
+        start_vertex = self.allVertex[start_v]
+        end_vertex = self.allVertex[end_v]
+
+        self.adj_list.setdefault(start_vertex, [])
+        self.adj_list.setdefault(end_vertex, [])
+
+        if end_vertex not in self.adj_list[start_vertex]:
+            self.adj_list[end_vertex].append(start_vertex)
+            self.adj_list[start_vertex].append(end_vertex)
+
+    def insert_vertex(self, v):
+        self.allVertex[v] = Graph.vector_num
+        self.adj_list[self.allVertex[v]] = []
+        self.vectorId += 1
+        Graph.vector_num += 1
+
+    def merge(self, origin_graph):
+        for key, value in origin_graph.adj_list.items():
+            value.extend(self.allVertex[i] for i, old_cv in enumerate(origin_graph.allVertex) if old_cv in value)
+            value[:] = [v for v in value if v not in origin_graph.allVertex]
+
+        for i, kk in enumerate(self.allVertex):
+            self.adj_list[kk].extend(
+                j for j in origin_graph.adj_list[origin_graph.allVertex[i]] if j not in self.adj_list[kk])
+            origin_graph.adj_list.pop(origin_graph.allVertex[i])
+
+        self.adj_list.update(origin_graph.adj_list)
+        return self
+
+
+def operation_Graph(input_graph):
+    graphs = []
+    final_graph = None
+    level = 0
+    vertexNum = int(input_graph[0]) + 1
+    opts = input_graph[1:].strip().split()
+
+    # 遍历的每一个文本在opts中
+    for i in range(len(opts)):
+        if opts[i] == ")":
+            if not graphs or graphs[0].get_level() < level:
+                graphs.insert(0, final_graph)
+            else:
+                while graphs[0] != final_graph and graphs[0].get_level() >= level:
+                    graphs.insert(0, final_graph.merge(graphs.pop(0)))
+            level -= 1
+        elif opts[i] == "(":
+            if opts[i + 1] != "(":
+                level += 1
+                final_graph = Graph(vertexNum, level)
+        elif len(opts[i]) == 1:
+            final_graph.insert_vertex(eval(opts[i]))
+        elif len(opts[i]) == 2:
+            final_graph.insert_edge(eval(opts[i][0]), eval(opts[i][1]))
+    Graph.vector_num = 0
+    return graphs.pop()
+
+
+def main():
+    inputData = []
+    while True:
+        line = input().strip()
+        inputData.append(line)
+        if line[0] == "0":
+            break
+    for i in range(len(inputData)):
+        graph = operation_Graph(inputData[i])
+        graph.print_degrees(i == 0)
+
+
+main()
